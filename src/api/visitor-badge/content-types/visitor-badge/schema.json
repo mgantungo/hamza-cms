@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "visitor_badges",
+  "info": {
+    "singularName": "visitor-badge",
+    "pluralName": "visitor-badges",
+    "displayName": "Visitor Badge"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "number": {
+      "type": "string",
+      "required": true
+    },
+    "branch": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::branch.branch"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "available",
+        "issued",
+        "lost"
+      ],
+      "default": "available"
+    }
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "kind": "collectionType",
+  "collectionName": "guests",
+  "info": {
+    "singularName": "guest",
+    "pluralName": "guests",
+    "displayName": "guest"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "guest_name": {
+      "type": "string",
+      "required": true
+    },
+    "nin": {
+      "type": "string",
+      "unique": true
+    },
+    "phone": {
+      "type": "string"
+    },
+    "guest_access_logs": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::guest-access-log.guest-access-log",
+      "mappedBy": "guest"
+    },
+    "entrance_sessions": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::entrance-session.entrance-session",
+      "mappedBy": "guest"
+    },
+    "organisation": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "id_type": {
+      "type": "string"
+    },
+    "watchlist": {
+      "type": "boolean",
+      "default": false
+    },
+    "watchlist_reason": {
+      "type": "string"
+    },
+    "photo_url": {
+      "type": "string"
+    }
+  }
+}

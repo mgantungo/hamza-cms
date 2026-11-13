@@ -1,0 +1,144 @@
+{
+  "kind": "collectionType",
+  "collectionName": "investigations",
+  "info": {
+    "singularName": "investigation",
+    "pluralName": "investigations",
+    "displayName": "Investigation"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "number": {
+      "type": "string",
+      "unique": true
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "unauthorised_carry",
+        "lost_reported",
+        "lost_scanned",
+        "fixed_item_at_gate",
+        "decommissioned_at_gate",
+        "personal_wrong_carrier",
+        "visitor_item_mismatch",
+        "permit_expired",
+        "stock_variance",
+        "overdue_loan",
+        "visitor_overstay",
+        "badge_not_returned",
+        "left_behind",
+        "after_hours",
+        "watchlist",
+        "manual",
+        "vehicle_driver_mismatch",
+        "driver_blocked"
+      ]
+    },
+    "severity": {
+      "type": "enumeration",
+      "enum": [
+        "critical",
+        "high",
+        "medium",
+        "low"
+      ],
+      "default": "medium"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "new",
+        "investigating",
+        "awaiting_info",
+        "resolved",
+        "closed"
+      ],
+      "default": "new"
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "investigator": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::app-user.app-user"
+    },
+    "due_at": {
+      "type": "datetime"
+    },
+    "outcome": {
+      "type": "enumeration",
+      "enum": [
+        "found",
+        "recovered_damaged",
+        "written_off",
+        "hr_referral",
+        "insurance_claim",
+        "no_issue"
+      ]
+    },
+    "outcome_notes": {
+      "type": "text"
+    },
+    "police_ref": {
+      "type": "string"
+    },
+    "insurance_ref": {
+      "type": "string"
+    },
+    "asset": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::company-asset.company-asset"
+    },
+    "staff": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::staff.staff"
+    },
+    "visit": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::visit.visit"
+    },
+    "branch": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::branch.branch"
+    },
+    "access_point": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::access-point.access-point"
+    },
+    "opened_by": {
+      "type": "string"
+    },
+    "closed_at": {
+      "type": "datetime"
+    },
+    "write_off_status": {
+      "type": "enumeration",
+      "enum": [
+        "none",
+        "proposed",
+        "approved",
+        "rejected"
+      ],
+      "default": "none"
+    },
+    "notes": {
+      "type": "json"
+    },
+    "evidence": {
+      "type": "json"
+    }
+  }
+}

@@ -1,0 +1,100 @@
+{
+  "kind": "collectionType",
+  "collectionName": "requisitions",
+  "info": {
+    "singularName": "requisition",
+    "pluralName": "requisitions",
+    "displayName": "Requisition"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "number": {
+      "type": "string",
+      "unique": true
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "consumable",
+        "borrow",
+        "new_asset"
+      ],
+      "default": "consumable"
+    },
+    "requester": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::staff.staff"
+    },
+    "requester_user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::app-user.app-user"
+    },
+    "department": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::department.department"
+    },
+    "store": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::store.store"
+    },
+    "branch": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::branch.branch"
+    },
+    "needed_by": {
+      "type": "date"
+    },
+    "return_by": {
+      "type": "date"
+    },
+    "purpose": {
+      "type": "string"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "draft",
+        "submitted",
+        "manager_approved",
+        "approved",
+        "partly_issued",
+        "issued",
+        "received",
+        "returned",
+        "returned_to_requester",
+        "rejected",
+        "cancelled"
+      ],
+      "default": "draft"
+    },
+    "lines": {
+      "type": "json"
+    },
+    "steps": {
+      "type": "json"
+    },
+    "current_step": {
+      "type": "integer"
+    },
+    "total_value": {
+      "type": "decimal"
+    },
+    "history": {
+      "type": "json"
+    },
+    "submitted_at": {
+      "type": "datetime"
+    },
+    "received_at": {
+      "type": "datetime"
+    }
+  }
+}

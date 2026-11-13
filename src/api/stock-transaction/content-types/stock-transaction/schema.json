@@ -1,0 +1,113 @@
+{
+  "kind": "collectionType",
+  "collectionName": "stock_transactions",
+  "info": {
+    "singularName": "stock-transaction",
+    "pluralName": "stock-transactions",
+    "displayName": "Stock Transaction"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "receive",
+        "issue",
+        "lend",
+        "return",
+        "adjust",
+        "transfer_out",
+        "transfer_in",
+        "write_off"
+      ]
+    },
+    "store": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::store.store"
+    },
+    "item": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::store-item.store-item"
+    },
+    "qty": {
+      "type": "decimal"
+    },
+    "unit_cost": {
+      "type": "decimal"
+    },
+    "supplier": {
+      "type": "string"
+    },
+    "delivery_note": {
+      "type": "string"
+    },
+    "expiry_date": {
+      "type": "date"
+    },
+    "batch": {
+      "type": "string"
+    },
+    "issued_by": {
+      "type": "string"
+    },
+    "taker": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::staff.staff"
+    },
+    "department": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::department.department"
+    },
+    "due_date": {
+      "type": "date"
+    },
+    "condition_out": {
+      "type": "string"
+    },
+    "condition_in": {
+      "type": "string"
+    },
+    "linked_asset": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::company-asset.company-asset"
+    },
+    "requisition": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::requisition.requisition"
+    },
+    "loan": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::stock-transaction.stock-transaction"
+    },
+    "returned_qty": {
+      "type": "decimal"
+    },
+    "loan_status": {
+      "type": "enumeration",
+      "enum": [
+        "open",
+        "returned",
+        "written_off"
+      ]
+    },
+    "reason": {
+      "type": "string"
+    },
+    "approved_by": {
+      "type": "string"
+    },
+    "happened_at": {
+      "type": "datetime"
+    }
+  }
+}

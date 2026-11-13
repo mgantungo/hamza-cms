@@ -1,0 +1,65 @@
+{
+  "kind": "collectionType",
+  "collectionName": "anomalies",
+  "info": {
+    "singularName": "anomaly",
+    "pluralName": "anomalies",
+    "displayName": "anomaly"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "type": {
+      "type": "enumeration",
+      "required": true,
+      "enum": [
+        "Assignment Anomaly",
+        "Movement Anomaly",
+        "Status Anomaly",
+        "Access Anomaly",
+        "Data Anomaly"
+      ]
+    },
+    "severity": {
+      "type": "enumeration",
+      "required": true,
+      "enum": [
+        "critical",
+        "warning",
+        "info"
+      ]
+    },
+    "description": {
+      "type": "string"
+    },
+    "location": {
+      "type": "string",
+      "required": true
+    },
+    "reviewed": {
+      "type": "boolean"
+    },
+    "reviewedAt": {
+      "type": "datetime"
+    },
+    "investigationStatus": {
+      "type": "enumeration",
+      "enum": [
+        "not_started",
+        "in_progress",
+        "resolved"
+      ]
+    },
+    "assigned_to": {
+      "type": "string"
+    },
+    "details": {
+      "type": "json"
+    },
+    "timestamp": {
+      "type": "datetime"
+    }
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "kind": "collectionType",
+  "collectionName": "app_roles",
+  "info": {
+    "singularName": "app-role",
+    "pluralName": "app-roles",
+    "displayName": "App Role"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "description": {
+      "type": "string"
+    },
+    "scope": {
+      "type": "enumeration",
+      "enum": [
+        "all",
+        "branches",
+        "department",
+        "access_points",
+        "self"
+      ],
+      "default": "branches"
+    },
+    "permissions": {
+      "type": "json"
+    },
+    "approval_limit": {
+      "type": "decimal"
+    },
+    "builtin": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

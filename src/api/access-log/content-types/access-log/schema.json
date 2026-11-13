@@ -1,0 +1,49 @@
+{
+  "kind": "collectionType",
+  "collectionName": "access_logs",
+  "info": {
+    "singularName": "access-log",
+    "pluralName": "access-logs",
+    "displayName": "access-log"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "action": {
+      "type": "enumeration",
+      "required": true,
+      "enum": [
+        "Check in",
+        "Check out"
+      ]
+    },
+    "location": {
+      "type": "string",
+      "required": true
+    },
+    "timestamp": {
+      "type": "datetime",
+      "required": true
+    },
+    "staff": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::staff.staff",
+      "inversedBy": "access_logs"
+    },
+    "devices": {
+      "type": "json",
+      "required": true
+    },
+    "card_id": {
+      "type": "string",
+      "required": true
+    },
+    "flagged": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "kind": "collectionType",
+  "collectionName": "store_items",
+  "info": {
+    "singularName": "store-item",
+    "pluralName": "store-items",
+    "displayName": "Store Item"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "code": {
+      "type": "string",
+      "unique": true
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "category": {
+      "type": "string"
+    },
+    "kind": {
+      "type": "enumeration",
+      "enum": [
+        "consumable",
+        "returnable"
+      ],
+      "default": "consumable"
+    },
+    "unit": {
+      "type": "string"
+    },
+    "reorder_level": {
+      "type": "decimal"
+    },
+    "unit_cost": {
+      "type": "decimal"
+    },
+    "location_bin": {
+      "type": "string"
+    },
+    "restricted": {
+      "type": "boolean",
+      "default": false
+    },
+    "active": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}

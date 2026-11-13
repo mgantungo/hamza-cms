@@ -1,0 +1,52 @@
+{
+  "kind": "collectionType",
+  "collectionName": "shifts",
+  "info": {
+    "singularName": "shift",
+    "pluralName": "shifts",
+    "displayName": "shift"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "guard_name": {
+      "type": "string"
+    },
+    "shift_type": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "string"
+    },
+    "entrance": {
+      "type": "string"
+    },
+    "start_time": {
+      "type": "datetime"
+    },
+    "end_time": {
+      "type": "datetime"
+    },
+    "active": {
+      "type": "boolean",
+      "default": true
+    },
+    "user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::app-user.app-user"
+    },
+    "access_point": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::access-point.access-point"
+    },
+    "terminal": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::terminal.terminal"
+    }
+  }
+}

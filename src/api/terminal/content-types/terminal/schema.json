@@ -1,0 +1,41 @@
+{
+  "kind": "collectionType",
+  "collectionName": "terminals",
+  "info": {
+    "singularName": "terminal",
+    "pluralName": "terminals",
+    "displayName": "Terminal"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "token_hash": {
+      "type": "string",
+      "private": true
+    },
+    "access_point": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::access-point.access-point"
+    },
+    "last_seen": {
+      "type": "datetime"
+    },
+    "last_user": {
+      "type": "string"
+    },
+    "revoked": {
+      "type": "boolean",
+      "default": false
+    },
+    "enrolled_by": {
+      "type": "string"
+    }
+  }
+}

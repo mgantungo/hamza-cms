@@ -1,0 +1,45 @@
+{
+  "kind": "collectionType",
+  "collectionName": "vehicle_passcards",
+  "info": {
+    "singularName": "vehicle-passcard",
+    "pluralName": "vehicle-passcards",
+    "displayName": "vehicle_passcard"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "passcard_number": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "passcard_status": {
+      "type": "enumeration",
+      "required": true,
+      "default": "available",
+      "enum": [
+        "available",
+        "issued",
+        "lost",
+        "damaged"
+      ]
+    },
+    "notes": {
+      "type": "string"
+    },
+    "guest_vehicle_sessions": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::guest-vehicle-session.guest-vehicle-session",
+      "mappedBy": "passcard"
+    },
+    "branch": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::branch.branch"
+    }
+  }
+}

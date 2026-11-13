@@ -1,0 +1,87 @@
+{
+  "kind": "collectionType",
+  "collectionName": "appointments",
+  "info": {
+    "singularName": "appointment",
+    "pluralName": "appointments",
+    "displayName": "Appointment"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "visitor_name": {
+      "type": "string",
+      "required": true
+    },
+    "organisation": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "id_type": {
+      "type": "string"
+    },
+    "id_number": {
+      "type": "string"
+    },
+    "host": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::staff.staff"
+    },
+    "branch": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::branch.branch"
+    },
+    "scheduled_at": {
+      "type": "datetime"
+    },
+    "duration_min": {
+      "type": "integer"
+    },
+    "purpose": {
+      "type": "string"
+    },
+    "agenda": {
+      "type": "string"
+    },
+    "plate": {
+      "type": "string"
+    },
+    "devices_expected": {
+      "type": "string"
+    },
+    "group_size": {
+      "type": "integer"
+    },
+    "invite_code": {
+      "type": "string",
+      "unique": true
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "booked",
+        "arrived",
+        "no_show",
+        "cancelled"
+      ],
+      "default": "booked"
+    },
+    "booked_by": {
+      "type": "string"
+    },
+    "visit": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::visit.visit"
+    }
+  }
+}

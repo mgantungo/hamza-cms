@@ -1,0 +1,53 @@
+{
+  "kind": "collectionType",
+  "collectionName": "approval_rules",
+  "info": {
+    "singularName": "approval-rule",
+    "pluralName": "approval-rules",
+    "displayName": "Approval Rule"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "applies_to": {
+      "type": "enumeration",
+      "enum": [
+        "all",
+        "department",
+        "category",
+        "value_above",
+        "type"
+      ],
+      "default": "all"
+    },
+    "department": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::department.department"
+    },
+    "category": {
+      "type": "string"
+    },
+    "req_type": {
+      "type": "string"
+    },
+    "value_above": {
+      "type": "decimal"
+    },
+    "approver_role": {
+      "type": "string"
+    },
+    "order": {
+      "type": "integer"
+    },
+    "active": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}

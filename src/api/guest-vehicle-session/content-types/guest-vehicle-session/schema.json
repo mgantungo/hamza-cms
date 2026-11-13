@@ -1,0 +1,83 @@
+{
+  "kind": "collectionType",
+  "collectionName": "guest_vehicle_sessions",
+  "info": {
+    "singularName": "guest-vehicle-session",
+    "pluralName": "guest-vehicle-sessions",
+    "displayName": "guest_vehicle_session"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "plate_number": {
+      "type": "string",
+      "required": true
+    },
+    "visitor_name": {
+      "type": "string",
+      "required": true
+    },
+    "purpose": {
+      "type": "enumeration",
+      "required": true,
+      "enum": [
+        "Pickup",
+        "Delivery",
+        "Other"
+      ]
+    },
+    "location": {
+      "type": "string"
+    },
+    "check_in_time": {
+      "type": "datetime"
+    },
+    "check_out_time": {
+      "type": "datetime"
+    },
+    "registered_by": {
+      "type": "string"
+    },
+    "passcard": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::vehicle-passcard.vehicle-passcard",
+      "inversedBy": "guest_vehicle_sessions"
+    },
+    "session_status": {
+      "type": "enumeration",
+      "enum": [
+        "checked_in",
+        "checked_out"
+      ]
+    },
+    "access_point": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::access-point.access-point"
+    },
+    "access_point_out": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::access-point.access-point"
+    },
+    "branch": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::branch.branch"
+    },
+    "appointment": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::appointment.appointment"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "checked_out_by": {
+      "type": "string"
+    }
+  }
+}

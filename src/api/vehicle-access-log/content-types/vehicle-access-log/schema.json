@@ -1,0 +1,47 @@
+{
+  "kind": "collectionType",
+  "collectionName": "vehicle_access_logs",
+  "info": {
+    "singularName": "vehicle-access-log",
+    "pluralName": "vehicle-access-logs",
+    "displayName": "vehicle-access-log"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "vehicle": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::company-asset.company-asset",
+      "inversedBy": "vehicle_access_logs"
+    },
+    "driver": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::staff.staff",
+      "inversedBy": "vehicle_access_logs"
+    },
+    "method": {
+      "type": "enumeration",
+      "required": true,
+      "enum": [
+        "QR scan",
+        "Manual entry"
+      ]
+    },
+    "location": {
+      "type": "string",
+      "required": true
+    },
+    "direction": {
+      "type": "enumeration",
+      "required": true,
+      "enum": [
+        "IN",
+        "OUT"
+      ]
+    }
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "kind": "collectionType",
+  "collectionName": "access_points",
+  "info": {
+    "singularName": "access-point",
+    "pluralName": "access-points",
+    "displayName": "Access Point"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "code": {
+      "type": "string"
+    },
+    "kind": {
+      "type": "enumeration",
+      "enum": [
+        "pedestrian",
+        "vehicle",
+        "both"
+      ],
+      "default": "pedestrian"
+    },
+    "branch": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::branch.branch"
+    },
+    "legacy_location": {
+      "type": "string"
+    },
+    "active": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}

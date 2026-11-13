@@ -1,0 +1,86 @@
+{
+  "kind": "collectionType",
+  "collectionName": "entrance_sessions",
+  "info": {
+    "singularName": "entrance-session",
+    "pluralName": "entrance-sessions",
+    "displayName": "entrance session"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "entrance": {
+      "type": "string",
+      "required": true
+    },
+    "session_status": {
+      "type": "enumeration",
+      "enum": [
+        "pending_reception",
+        "checked_in",
+        "checked_out"
+      ]
+    },
+    "visitor_type": {
+      "type": "enumeration",
+      "enum": [
+        "guest",
+        "staff"
+      ]
+    },
+    "visitor_data": {
+      "type": "json"
+    },
+    "staff": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::staff.staff",
+      "inversedBy": "entrance_sessions"
+    },
+    "guest": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::guest.guest",
+      "inversedBy": "entrance_sessions"
+    },
+    "department": {
+      "type": "string"
+    },
+    "visiting_person": {
+      "type": "string"
+    },
+    "check_in_time": {
+      "type": "datetime"
+    },
+    "registered_by": {
+      "type": "string"
+    },
+    "purpose": {
+      "type": "enumeration",
+      "enum": [
+        "Meeting",
+        "Personal",
+        "Appointment",
+        "Interview",
+        "Other"
+      ]
+    },
+    "check_out_time": {
+      "type": "datetime"
+    },
+    "meeting_agenda": {
+      "type": "string"
+    },
+    "position_applied_for": {
+      "type": "string"
+    },
+    "scheduled_time": {
+      "type": "string"
+    },
+    "additional_notes": {
+      "type": "string"
+    }
+  }
+}

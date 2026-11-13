@@ -1,0 +1,86 @@
+{
+  "kind": "collectionType",
+  "collectionName": "movements",
+  "info": {
+    "singularName": "movement",
+    "pluralName": "movements",
+    "displayName": "Movement"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "asset": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::company-asset.company-asset"
+    },
+    "person": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::staff.staff"
+    },
+    "visit": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::visit.visit"
+    },
+    "direction": {
+      "type": "enumeration",
+      "enum": [
+        "IN",
+        "OUT"
+      ]
+    },
+    "access_point": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::access-point.access-point"
+    },
+    "branch": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::branch.branch"
+    },
+    "terminal": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::terminal.terminal"
+    },
+    "guard": {
+      "type": "string"
+    },
+    "result": {
+      "type": "enumeration",
+      "enum": [
+        "ok",
+        "exception"
+      ],
+      "default": "ok"
+    },
+    "reason": {
+      "type": "string"
+    },
+    "investigation": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::investigation.investigation"
+    },
+    "acknowledged_by": {
+      "type": "string"
+    },
+    "scanned_at": {
+      "type": "datetime"
+    },
+    "method": {
+      "type": "enumeration",
+      "enum": [
+        "scan",
+        "manual",
+        "migrated"
+      ],
+      "default": "scan"
+    }
+  }
+}

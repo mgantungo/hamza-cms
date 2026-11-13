@@ -1,0 +1,38 @@
+{
+  "kind": "collectionType",
+  "collectionName": "asset_categories",
+  "info": {
+    "singularName": "asset-category",
+    "pluralName": "asset-categories",
+    "displayName": "Asset Category"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "tag_prefix": {
+      "type": "string"
+    },
+    "gate_rule_default": {
+      "type": "enumeration",
+      "enum": [
+        "portable",
+        "fixed"
+      ],
+      "default": "portable"
+    },
+    "custom_fields": {
+      "type": "json"
+    },
+    "is_vehicle": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

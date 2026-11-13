@@ -1,0 +1,61 @@
+{
+  "kind": "collectionType",
+  "collectionName": "asset_histories",
+  "info": {
+    "singularName": "asset-history",
+    "pluralName": "asset-histories",
+    "displayName": "asset-history"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "action_type": {
+      "type": "enumeration",
+      "enum": [
+        "create",
+        "update",
+        "assign",
+        "unassign",
+        "reassign",
+        "transfer",
+        "lost",
+        "found",
+        "repair",
+        "decommission",
+        "import"
+      ]
+    },
+    "company_asset": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::company-asset.company-asset",
+      "inversedBy": "asset_histories"
+    },
+    "performed_by": {
+      "type": "string"
+    },
+    "reason": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "text"
+    },
+    "previous_assignee": {
+      "type": "string"
+    },
+    "new_assignee": {
+      "type": "string"
+    },
+    "extra": {
+      "type": "json"
+    },
+    "event_date": {
+      "type": "datetime"
+    },
+    "user": {
+      "type": "string"
+    }
+  }
+}

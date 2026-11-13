@@ -1,0 +1,64 @@
+{
+  "kind": "collectionType",
+  "collectionName": "app_users",
+  "info": {
+    "singularName": "app-user",
+    "pluralName": "app-users",
+    "displayName": "App User"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "username": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "password_hash": {
+      "type": "string",
+      "private": true
+    },
+    "full_name": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "active": {
+      "type": "boolean",
+      "default": true
+    },
+    "roles": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::app-role.app-role"
+    },
+    "branches": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::branch.branch"
+    },
+    "access_points": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::access-point.access-point"
+    },
+    "staff": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::staff.staff"
+    },
+    "last_login": {
+      "type": "datetime"
+    },
+    "pin_hash": {
+      "type": "string",
+      "private": true
+    }
+  }
+}

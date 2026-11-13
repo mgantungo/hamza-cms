@@ -1,0 +1,193 @@
+{
+  "kind": "collectionType",
+  "collectionName": "company_assets",
+  "info": {
+    "singularName": "company-asset",
+    "pluralName": "company-assets",
+    "displayName": "company-asset"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "tag_number": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "asset_name": {
+      "type": "string",
+      "required": true
+    },
+    "serial_number": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "asset_status": {
+      "type": "enumeration",
+      "enum": [
+        "available",
+        "assigned",
+        "lost",
+        "decommissioned",
+        "in_repair",
+        "on_loan"
+      ],
+      "default": "available"
+    },
+    "assigned_to": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::staff.staff",
+      "inversedBy": "company_assets"
+    },
+    "category": {
+      "type": "string",
+      "required": true
+    },
+    "notes": {
+      "type": "text"
+    },
+    "asset_histories": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::asset-history.asset-history",
+      "mappedBy": "company_asset"
+    },
+    "vehicle_access_logs": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::vehicle-access-log.vehicle-access-log",
+      "mappedBy": "vehicle"
+    },
+    "ownership": {
+      "type": "enumeration",
+      "enum": [
+        "company",
+        "personal",
+        "visitor",
+        "third_party"
+      ],
+      "default": "company"
+    },
+    "category_ref": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::asset-category.asset-category"
+    },
+    "make": {
+      "type": "string"
+    },
+    "model": {
+      "type": "string"
+    },
+    "manufacturer": {
+      "type": "string"
+    },
+    "model_year": {
+      "type": "integer"
+    },
+    "manufacture_date": {
+      "type": "date"
+    },
+    "purchase_date": {
+      "type": "date"
+    },
+    "supplier": {
+      "type": "string"
+    },
+    "invoice_no": {
+      "type": "string"
+    },
+    "cost": {
+      "type": "decimal"
+    },
+    "warranty_expiry": {
+      "type": "date"
+    },
+    "end_of_life": {
+      "type": "date"
+    },
+    "condition": {
+      "type": "enumeration",
+      "enum": [
+        "new",
+        "good",
+        "fair",
+        "poor",
+        "broken"
+      ],
+      "default": "good"
+    },
+    "branch": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::branch.branch"
+    },
+    "office": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::office.office"
+    },
+    "gate_rule": {
+      "type": "enumeration",
+      "enum": [
+        "portable",
+        "fixed"
+      ],
+      "default": "portable"
+    },
+    "location_state": {
+      "type": "enumeration",
+      "enum": [
+        "inside",
+        "outside",
+        "unknown"
+      ],
+      "default": "unknown"
+    },
+    "last_seen_at": {
+      "type": "datetime"
+    },
+    "last_access_point": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::access-point.access-point"
+    },
+    "owner_name": {
+      "type": "string"
+    },
+    "contract_ref": {
+      "type": "string"
+    },
+    "permit_end": {
+      "type": "date"
+    },
+    "visit": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::visit.visit"
+    },
+    "approval_status": {
+      "type": "enumeration",
+      "enum": [
+        "approved",
+        "pending",
+        "rejected"
+      ],
+      "default": "approved"
+    },
+    "custom_values": {
+      "type": "json"
+    },
+    "photo_url": {
+      "type": "string"
+    },
+    "previous_status": {
+      "type": "string"
+    }
+  }
+}

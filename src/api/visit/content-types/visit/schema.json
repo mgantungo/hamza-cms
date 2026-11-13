@@ -1,0 +1,84 @@
+{
+  "kind": "collectionType",
+  "collectionName": "visits",
+  "info": {
+    "singularName": "visit",
+    "pluralName": "visits",
+    "displayName": "Visit"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "visitor": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::guest.guest"
+    },
+    "appointment": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::appointment.appointment"
+    },
+    "host": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::staff.staff"
+    },
+    "purpose": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "text"
+    },
+    "badge": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::visitor-badge.visitor-badge"
+    },
+    "branch": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::branch.branch"
+    },
+    "access_point_in": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::access-point.access-point"
+    },
+    "access_point_out": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::access-point.access-point"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "waiting",
+        "in_building",
+        "checked_out",
+        "declined"
+      ],
+      "default": "waiting"
+    },
+    "arrived_at": {
+      "type": "datetime"
+    },
+    "checked_in_at": {
+      "type": "datetime"
+    },
+    "checked_out_at": {
+      "type": "datetime"
+    },
+    "registered_by": {
+      "type": "string"
+    },
+    "checked_in_by": {
+      "type": "string"
+    },
+    "photo_url": {
+      "type": "string"
+    }
+  }
+}

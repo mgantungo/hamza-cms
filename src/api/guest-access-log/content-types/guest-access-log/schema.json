@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "guest_access_logs",
+  "info": {
+    "singularName": "guest-access-log",
+    "pluralName": "guest-access-logs",
+    "displayName": "guest access log"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "action": {
+      "type": "enumeration",
+      "required": true,
+      "enum": [
+        "Check in",
+        "Check out"
+      ]
+    },
+    "temporary_card_number": {
+      "type": "string"
+    },
+    "location": {
+      "type": "string",
+      "required": true
+    },
+    "guest": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::guest.guest",
+      "inversedBy": "guest_access_logs"
+    }
+  }
+}

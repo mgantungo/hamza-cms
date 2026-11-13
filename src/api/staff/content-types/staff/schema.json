@@ -1,0 +1,90 @@
+{
+  "kind": "collectionType",
+  "collectionName": "staffs",
+  "info": {
+    "singularName": "staff",
+    "pluralName": "staffs",
+    "displayName": "staff"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "staff_id": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "staff_name": {
+      "type": "string",
+      "required": true
+    },
+    "department": {
+      "type": "string"
+    },
+    "position": {
+      "type": "string",
+      "required": true
+    },
+    "company_assets": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::company-asset.company-asset",
+      "mappedBy": "assigned_to"
+    },
+    "access_logs": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::access-log.access-log",
+      "mappedBy": "staff"
+    },
+    "entrance_sessions": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::entrance-session.entrance-session",
+      "mappedBy": "staff"
+    },
+    "vehicle_access_logs": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::vehicle-access-log.vehicle-access-log",
+      "mappedBy": "driver"
+    },
+    "dept": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::department.department"
+    },
+    "branch": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::branch.branch"
+    },
+    "email": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "card_number": {
+      "type": "string"
+    },
+    "photo_url": {
+      "type": "string"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "active",
+        "suspended",
+        "left"
+      ],
+      "default": "active"
+    },
+    "national_id": {
+      "type": "string",
+      "private": true
+    }
+  }
+}
